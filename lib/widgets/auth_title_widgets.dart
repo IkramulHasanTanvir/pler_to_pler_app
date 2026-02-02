@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../widgets/widgets.dart';
 
 
@@ -30,7 +30,7 @@ class AuthTitleWidgets extends StatelessWidget {
           top: 12.h,
           text: title,
           fontSize:titleFontSize?? 14.sp,
-          color: titleColor ?? AppColors.appGreyColor,
+          color: titleColor ?? AppColors.textPrimary,
         ),
         if(subTitleColor != null)...[
           SizedBox(height: 6.h),
@@ -38,7 +38,7 @@ class AuthTitleWidgets extends StatelessWidget {
             textAlign: TextAlign.start,
             text: subtitle ?? '',
             fontSize:subTitleFontSize?? 15.sp,
-            color: subTitleColor ?? AppColors.secondaryColor,
+            color: subTitleColor ?? AppColors.textPrimary,
             textOverflow: TextOverflow.fade,
             fontName: 'Inter',
           ),

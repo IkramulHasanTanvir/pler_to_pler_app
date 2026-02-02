@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pler_to_pler_app/custom_assets/fonts.gen.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 
-import '../app/utils/app_colors.dart';
-import '../custom_assets/assets.gen.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -47,7 +45,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       titleSpacing: 0,
       shape: borderColor != null
           ? Border(
-        bottom: BorderSide(color: borderColor ?? AppColors.secondaryColor , width: borderWidth ?? 1),
+        bottom: BorderSide(color: borderColor ?? AppColors.textPrimary , width: borderWidth ?? 1),
       )
           : null,
       centerTitle: centerTitle,
@@ -60,7 +58,11 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: leading ??
           ((showLeading && (parentRoute?.canPop ?? false))
               ? IconButton(
-            icon: Assets.icons.backButton.svg(height: 32.h,width: 32.w),
+            icon: Icon(
+              Icons.arrow_back,
+              color: foregroundColor ?? AppColors.textPrimary,
+              size: 24.sp,
+            ),
             onPressed: backAction ?? () => Navigator.pop(context),
           )
               : null),
@@ -68,10 +70,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Text(
         title!,
         style: TextStyle(
-          fontFamily: FontFamily.lora,
+          fontFamily: 'Roboto',
           fontWeight: FontWeight.w400,
           fontSize: titleSize.sp,
-          color: foregroundColor ?? AppColors.appBarTitleColor,
+          color: foregroundColor ?? AppColors.textPrimary,
         ),
       )
           : titleWidget,

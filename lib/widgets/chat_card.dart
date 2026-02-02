@@ -1,7 +1,7 @@
 import 'package:chat_bubbles/bubbles/bubble_normal_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../services/api_urls.dart';
 import '../widgets/widgets.dart';
 
@@ -66,7 +66,7 @@ class ChatBubbleMessage extends StatelessWidget {
                 text: time,
                // left: isMe ? 0 : 44.w,
                // right: isMe ? 10.w : 0,
-                color: AppColors.appGreyColor,
+                color: AppColors.textPrimary,
               ),
              // SizedBox(width: 4.w),
              // _buildMessageStatusIcon(),

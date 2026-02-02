@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../widgets/widgets.dart';
 
 class CustomDialog extends StatelessWidget {
@@ -24,7 +24,7 @@ class CustomDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      backgroundColor: AppColors.bgColor,
+      backgroundColor: AppColors.textPrimary,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12.r),
       ),
@@ -64,14 +64,14 @@ class CustomDialog extends StatelessWidget {
                     style: TextButton.styleFrom(
                       backgroundColor:  Colors.transparent,
                       shape: RoundedRectangleBorder(
-                        side: BorderSide(color: AppColors.black600TextColor),
+                        side: BorderSide(color: AppColors.textPrimary),
                         borderRadius: BorderRadius.circular(8.r),
                       ),
                       padding: EdgeInsets.symmetric(vertical: 12.h),
                     ),
                     child: CustomText(
                       text: cancelButtonText!,
-                      color:AppColors.black600TextColor,
+                      color:AppColors.textPrimary,
                     ),
                   ),
                 ),

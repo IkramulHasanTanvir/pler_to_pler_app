@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/image_path.dart';
 import 'package:pler_to_pler_app/features/splash_screen/controllers/splash_controller.dart';
@@ -13,7 +14,7 @@ class SplashScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: EdgeInsets.all(getWidth(16)),
+        padding: EdgeInsets.all(16.r),
         child: Center(
           child: AnimatedBuilder(
             animation: controller.animationController,
@@ -28,8 +29,8 @@ class SplashScreen extends StatelessWidget {
             },
             child: Image.asset(
               ImagePath.appLogo,
-              width: getWidth(200),
-              height: getHeight(200),
+              width:200.r,
+              height: 200.r,
               fit: BoxFit.cover,
             ),
           ),

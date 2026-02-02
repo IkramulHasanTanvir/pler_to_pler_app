@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_sizer.dart';
@@ -8,6 +9,7 @@ import 'package:pler_to_pler_app/core/utils/constants/app_sizes.dart';
 import 'package:pler_to_pler_app/features/onboarding/controller/onboarding_controller.dart';
 import 'package:pler_to_pler_app/features/onboarding/model/onboarding_item_model.dart';
 import 'package:pler_to_pler_app/features/onboarding/presentation/screens/onboarding_selection_screen.dart';
+import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class OnboardingMainScreen extends StatelessWidget {
   OnboardingMainScreen({super.key});
@@ -34,9 +36,9 @@ class OnboardingMainScreen extends StatelessWidget {
                     fit: BoxFit.cover,
                   ),
                   Positioned(
-                    left: getWidth(16),
-                    right: getWidth(16),
-                    bottom: getHeight(180),
+                    left: 16.w,
+                    right: 16.w,
+                    bottom: 180.h,
                     child: Column(
                       children: [
                         CustomText(
@@ -45,7 +47,7 @@ class OnboardingMainScreen extends StatelessWidget {
                           fontWeight: FontWeight.w600,
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: getHeight(8)),
+                        SizedBox(height: 8.h),
                         CustomText(
                           text: item.subtitle,
                           fontSize: 16.sp,
@@ -61,9 +63,9 @@ class OnboardingMainScreen extends StatelessWidget {
           ),
 
           Positioned(
-            left: getWidth(16),
-            right: getWidth(16),
-            bottom: getHeight(16),
+            left: 16.w,
+            right: 16.w,
+            bottom: 16.h,
             child: SafeArea(
               child: Column(
                 children: [
@@ -73,11 +75,11 @@ class OnboardingMainScreen extends StatelessWidget {
                       children: List.generate(
                         onboardingList.length,
                         (index) => Container(
-                          margin: EdgeInsets.symmetric(horizontal: getWidth(6)),
-                          height: getHeight(10),
+                          margin: EdgeInsets.symmetric(horizontal: 6.w),
+                          height: 10.h,
                           width: controller.currentIndex.value == index
-                              ? getWidth(40)
-                              : getWidth(8),
+                              ? 40.w
+                              : 8.w,
                           decoration: BoxDecoration(
                             color: controller.currentIndex.value == index
                                 ? AppColors.textPrimary
@@ -89,16 +91,16 @@ class OnboardingMainScreen extends StatelessWidget {
                     ),
                   ),
 
-                  SizedBox(height: getHeight(36)),
+                  SizedBox(height: 36.h),
 
-                  CustomSubmitButton(text: "Next", onTap: controller.nextPage),
+                  CustomButton(label: "Next", onPressed: controller.nextPage),
                 ],
               ),
             ),
           ),
           Positioned(
-            top: getHeight(80),
-            right: getWidth(26),
+            top: 80.h,
+            right: 26.w,
             child: GestureDetector(
               onTap: () {
                 log("Skip");

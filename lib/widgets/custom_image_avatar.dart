@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../services/api_urls.dart';
 import '../widgets/widgets.dart';
 
@@ -38,7 +38,7 @@ class CustomImageAvatar extends StatelessWidget {
       child: Container(
         padding: EdgeInsets.all(showBorder ? 1.r : 0),
         decoration: const BoxDecoration(
-          color: AppColors.primaryColor,
+          color: AppColors.textPrimary,
           shape: BoxShape.circle,
         ),
         child: CircleAvatar(

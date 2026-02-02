@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_sizer.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
@@ -30,7 +31,7 @@ class TwoButtonWidget extends StatelessWidget {
               bordersColor: isSelected ? (selectedBgColor ?? Color(0xff3E513E)) : (bgColor ?? AppColors.textSecondary),
               horizontalMargin: 10.w,
               radiusAll: 12.w,
-              paddingVertical: 8.h,
+              paddingVertical: 8.r,
               color: isSelected ? (selectedBgColor ?? Color(0xff3E513E)) : (bgColor ?? Colors.transparent) ,
               child: CustomText(
                 text: item['label']!,

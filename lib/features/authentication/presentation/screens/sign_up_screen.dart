@@ -2,13 +2,15 @@ import 'dart:developer';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_sizer.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_sizes.dart';
-import 'package:pler_to_pler_app/core/utils/validators/app_validator.dart';
+import 'package:pler_to_pler_app/core/utils/constants/image_path.dart';
 import 'package:pler_to_pler_app/features/authentication/controllers/sign_up_controller.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/login_screen.dart';
+import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class SignUpScreen extends StatelessWidget {
   SignUpScreen({super.key});
@@ -22,7 +24,7 @@ class SignUpScreen extends StatelessWidget {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(getHeight(16)),
+            padding: EdgeInsets.all(16.r),
             child: Form(
               key: _formKey,
               child: Column(
@@ -30,19 +32,19 @@ class SignUpScreen extends StatelessWidget {
                 children: [
                   Image.asset(
                     ImagePath.appLogo,
-                    width: getWidth(84),
-                    height: getHeight(84),
+                    width: 84.w,
+                    height:84.h,
                     fit: BoxFit.cover,
                   ),
-                  SizedBox(height: getHeight(16)),
+                  SizedBox(height: 16.h),
                   CustomText(
                     text: "Sign up to  fitness",
                     fontSize: 32.sp,
                     fontWeight: FontWeight.w600,
                   ),
-                  SizedBox(height: getHeight(40)),
+                  SizedBox(height: 40.h),
                   Container(
-                    padding: EdgeInsets.all(getHeight(4)),
+                    padding: EdgeInsets.all(4.r),
                     decoration: BoxDecoration(
                       color: AppColors.textWhite,
                       borderRadius: BorderRadius.circular(16),
@@ -70,7 +72,7 @@ class SignUpScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: getHeight(24)),
+                  SizedBox(height: 24.h),
                   Obx(() {
                     if (controller.selectedTab.value == "Facility") {
                       return Column(
@@ -80,10 +82,10 @@ class SignUpScreen extends StatelessWidget {
                             text: "Facility name",
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
-                            textColor: AppColors.textSecondary,
+                            color: AppColors.textSecondary,
                           ),
-                          SizedBox(height: getHeight(4)),
-                          CustomTextFormField(
+                          SizedBox(height: 4.h),
+                          CustomTextField(
                             controller: controller.facilityNameController,
                             hintText: "Enter your facility name",
                             prefixIcon: Icon(Icons.factory, size: 24.sp),
@@ -91,36 +93,36 @@ class SignUpScreen extends StatelessWidget {
                                 controller.validateFieldFacility(),
                             // validation: AppValidator.validateNotEmpty,
                           ),
-                          SizedBox(height: getHeight(12)),
+                          SizedBox(height:12.h),
                           CustomText(
                             text: "Facility type",
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
-                            textColor: AppColors.textSecondary,
+                            color: AppColors.textSecondary,
                           ),
-                          SizedBox(height: getHeight(4)),
-                          Obx(
-                            () => CustomDropdownField(
-                              hintText: "Select a facility type",
-                              items: controller.facilityList,
-                              selectedValue:
-                                  controller.selectedFacilityType.value,
-                              onChanged: (value) {
-                                controller.changeFacilityType(value);
-                                controller.validateFieldFacility();
-                              },
-                              borderRedius: 16,
-                            ),
-                          ),
-                          SizedBox(height: getHeight(12)),
+                          SizedBox(height: 4.h),
+                          // Obx(
+                          //   () => CustomDropdownField(
+                          //     hintText: "Select a facility type",
+                          //     items: controller.facilityList,
+                          //     selectedValue:
+                          //         controller.selectedFacilityType.value,
+                          //     onChanged: (value) {
+                          //       controller.changeFacilityType(value);
+                          //       controller.validateFieldFacility();
+                          //     },
+                          //     borderRedius: 16,
+                          //   ),
+                          // ),
+                          SizedBox(height: 12.h),
                           CustomText(
                             text: "Facility Registration/Accreditation number",
                             fontSize: 14.sp,
                             fontWeight: FontWeight.w500,
-                            textColor: AppColors.textSecondary,
+                            color: AppColors.textSecondary,
                           ),
-                          SizedBox(height: getHeight(4)),
-                          CustomTextFormField(
+                          SizedBox(height: 4.h),
+                          CustomTextField(
                             controller:
                                 controller.facilityAccountNumberController,
                             hintText: "000-000-000-0000",
@@ -130,21 +132,21 @@ class SignUpScreen extends StatelessWidget {
                             // validation: AppValidator.validateNotEmpty,
                             keyboardType: TextInputType.numberWithOptions(),
                           ),
-                          SizedBox(height: getHeight(12)),
+                          SizedBox(height: 12.h),
                           GestureDetector(
                             onTap: () {
                               controller.pickFile();
                             },
                             child: DottedBorder(
                               child: Padding(
-                                padding: EdgeInsets.all(getHeight(16)),
+                                padding: EdgeInsets.all(16.r),
                                 child: Obx(() {
                                   if (controller.filePath.value.isNotEmpty) {
                                     return Row(
                                       children: [
                                         Container(
                                           padding: EdgeInsets.all(
-                                            getHeight(12),
+                                            12.h,
                                           ),
                                           decoration: BoxDecoration(
                                             color: AppColors.textWhite,
@@ -158,7 +160,7 @@ class SignUpScreen extends StatelessWidget {
                                             color: AppColors.textPrimary,
                                           ),
                                         ),
-                                        SizedBox(width: getWidth(14)),
+                                        SizedBox(width: 14.w),
                                         Expanded(
                                           child: CustomText(
                                             text: controller.filePath.value,
@@ -166,7 +168,7 @@ class SignUpScreen extends StatelessWidget {
                                             fontWeight: FontWeight.w600,
                                           ),
                                         ),
-                                        SizedBox(width: getWidth(12)),
+                                        SizedBox(width: 12.w),
                                         GestureDetector(
                                           onTap: () {
                                             controller.filePath.value = "";
@@ -174,7 +176,7 @@ class SignUpScreen extends StatelessWidget {
                                           },
                                           child: Container(
                                             padding: EdgeInsets.all(
-                                              getHeight(12),
+                                              12.h,
                                             ),
                                             decoration: BoxDecoration(
                                               color: AppColors.textWhite,
@@ -194,7 +196,7 @@ class SignUpScreen extends StatelessWidget {
                                   return Row(
                                     children: [
                                       Container(
-                                        padding: EdgeInsets.all(getHeight(12)),
+                                        padding: EdgeInsets.all(12.h),
                                         decoration: BoxDecoration(
                                           color: AppColors.textWhite,
                                           borderRadius: BorderRadius.circular(
@@ -207,7 +209,7 @@ class SignUpScreen extends StatelessWidget {
                                           color: AppColors.textPrimary,
                                         ),
                                       ),
-                                      SizedBox(width: getWidth(14)),
+                                      SizedBox(width: 14.w),
                                       CustomText(
                                         text:
                                             "Trade license /\nAccreditation certificate",
@@ -220,22 +222,16 @@ class SignUpScreen extends StatelessWidget {
                               ),
                             ),
                           ),
-                          SizedBox(height: getHeight(24)),
-                          CustomSubmitButton(
-                            text: "Continue",
-                            onTap: () {
+                          SizedBox(height: 24.h),
+                          CustomButton(
+                            label: "Continue",
+                            onPressed: () {
                               if (controller.isValidateFacility.value) {
                                 log("Validate user");
                               } else {
                                 log("Invalid user");
                               }
                             },
-                            textColor: controller.isValidateFacility.value
-                                ? AppColors.textWhite
-                                : AppColors.textSecondary,
-                            color: controller.isValidateFacility.value
-                                ? AppColors.primary
-                                : AppColors.textFormFieldBorder,
                           ),
                         ],
                       );
@@ -247,75 +243,49 @@ class SignUpScreen extends StatelessWidget {
                           text: "Email",
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
-                          textColor: AppColors.textSecondary,
+                          color: AppColors.textSecondary,
                         ),
-                        SizedBox(height: getHeight(4)),
-                        CustomTextFormField(
+                        SizedBox(height: 4.h),
+                        CustomTextField(
                           controller: controller.emailController,
                           hintText: "Enter your email address",
                           prefixIcon: Icon(Icons.email, size: 24.sp),
-                          onChanged: (_) => controller.validateField(),
-                          validation: AppValidator.validateEmail,
                         ),
-                        SizedBox(height: getHeight(12)),
+                        SizedBox(height: 12.h),
                         CustomText(
                           text: "Password",
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
-                          textColor: AppColors.textSecondary,
+                          color: AppColors.textSecondary,
                         ),
-                        SizedBox(height: getHeight(4)),
+                        SizedBox(height: 4.h),
                         Obx(
-                          () => CustomTextFormField(
+                          () => CustomTextField(
                             controller: controller.passwordController,
                             hintText: "Enter your password",
                             prefixIcon: Icon(Icons.vpn_key, size: 24.sp),
-                            suffixIcon: GestureDetector(
-                              onTap: () => controller.changeVisibility(),
-                              child: Icon(
-                                controller.passwordNotVisible.value == false
-                                    ? Icons.visibility_rounded
-                                    : Icons.visibility_off,
-                                size: 24.sp,
-                              ),
-                            ),
-                            obscureText: controller.passwordNotVisible.value,
-                            onChanged: (_) => controller.validateField(),
-                            validation: AppValidator.validatePassword,
+                            isPassword: true,
+
+
                           ),
                         ),
-                        SizedBox(height: getHeight(12)),
+                        SizedBox(height: 12.h),
                         CustomText(
                           text: "Confirm password",
                           fontSize: 14.sp,
                           fontWeight: FontWeight.w500,
-                          textColor: AppColors.textSecondary,
+                          color: AppColors.textSecondary,
                         ),
-                        SizedBox(height: getHeight(4)),
+                        SizedBox(height: 4.h),
                         Obx(
-                          () => CustomTextFormField(
+                          () => CustomTextField(
                             controller: controller.conPasswordController,
                             hintText: "Enter your password",
                             prefixIcon: Icon(Icons.vpn_key, size: 24.sp),
-                            suffixIcon: GestureDetector(
-                              onTap: () => controller.changeVisibility2(),
-                              child: Icon(
-                                controller.passwordNotVisible2.value == false
-                                    ? Icons.visibility_rounded
-                                    : Icons.visibility_off,
-                                size: 24.sp,
-                              ),
-                            ),
-                            obscureText: controller.passwordNotVisible2.value,
-                            onChanged: (_) => controller.validateField(),
-                            validation: (value) =>
-                                AppValidator.validateConfirmPassword(
-                                  value,
-                                  controller.passwordController.text,
-                                ),
+                            isPassword: true,
                           ),
                         ),
-                        SizedBox(height: getHeight(12)),
+                        SizedBox(height: 12.h),
                         SizedBox(
                           width: double.infinity,
                           child: GestureDetector(
@@ -326,51 +296,43 @@ class SignUpScreen extends StatelessWidget {
                               text: "Forgot password?",
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
-                              textColor: AppColors.textSecondary,
+                              color: AppColors.textSecondary,
                               textAlign: TextAlign.end,
                             ),
                           ),
                         ),
-                        SizedBox(height: getHeight(24)),
+                        SizedBox(height: 24.h),
                         Obx(
-                          () => CustomSubmitButton(
-                            text: "Sign up",
-                            onTap: () {
+                          () => CustomButton(
+                            label: "Sign up",
+                            onPressed: () {
                               if (_formKey.currentState!.validate()) {
                                 log("Validate");
                               } else {
                                 log("Not validate");
                               }
                             },
-                            textColor: controller.isValidate.value
-                                ? AppColors.textWhite
-                                : AppColors.textSecondary,
-                            color: controller.isValidate.value
-                                ? AppColors.primary
-                                : AppColors.textFormFieldBorder,
                           ),
                         ),
-                        SizedBox(height: getHeight(16)),
+                        SizedBox(height: 16.h),
                         Row(
                           children: [
                             Expanded(child: Divider()),
-                            SizedBox(width: getWidth(8)),
+                            SizedBox(width: 8.w),
                             CustomText(
                               text: "Or continue with",
                               fontSize: 12.sp,
                               fontWeight: FontWeight.w400,
-                              textColor: AppColors.textSecondary,
+                              color: AppColors.textSecondary,
                             ),
-                            SizedBox(width: getWidth(8)),
+                            SizedBox(width: 8.w),
                             Expanded(child: Divider()),
                           ],
                         ),
-                        SizedBox(height: getHeight(16)),
-                        CustomSubmitButton(
-                          text: "Sign up with Google",
-                          onTap: () {},
-                          textColor: AppColors.textPrimary,
-                          color: AppColors.textWhite,
+                        SizedBox(height: 16.h),
+                        CustomButton(
+                          label: "Sign up with Google",
+                          onPressed: () {},
                         ),
                       ],
                     );
@@ -383,7 +345,7 @@ class SignUpScreen extends StatelessWidget {
       ),
       bottomNavigationBar: SafeArea(
         child: Padding(
-          padding: EdgeInsets.all(getHeight(8)),
+          padding: EdgeInsets.all(8.r),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
@@ -391,7 +353,7 @@ class SignUpScreen extends StatelessWidget {
                 text: "Don’t have an account? ",
                 fontSize: 14.sp,
                 fontWeight: FontWeight.w400,
-                textColor: AppColors.textSecondary,
+                color: AppColors.textSecondary,
               ),
               GestureDetector(
                 onTap: () {
@@ -402,7 +364,7 @@ class SignUpScreen extends StatelessWidget {
                   text: "Sign in",
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w600,
-                  textColor: AppColors.primary,
+                  color: AppColors.primary,
                 ),
               ),
             ],
@@ -423,7 +385,7 @@ Widget _helperTabBar({
         controller.changeTab(text);
       },
       child: Container(
-        padding: EdgeInsets.all(getHeight(10)),
+        padding: EdgeInsets.all(10.r),
         decoration: BoxDecoration(
           color: controller.selectedTab.value == text
               ? AppColors.textPrimary
@@ -434,9 +396,6 @@ Widget _helperTabBar({
           text: text,
           fontSize: 16.sp,
           fontWeight: FontWeight.w600,
-          textColor: controller.selectedTab.value == text
-              ? AppColors.textWhite
-              : AppColors.textSecondary,
           textAlign: TextAlign.center,
         ),
       ),

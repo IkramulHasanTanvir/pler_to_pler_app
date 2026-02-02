@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
-import '../widgets/widgets.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
+import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class CustomListTile extends StatelessWidget {
   const CustomListTile({
@@ -86,7 +86,7 @@ class CustomListTile extends StatelessWidget {
               text: subTitle ?? '',
               fontWeight: FontWeight.w500,
               fontSize: subtitleFontSize ?? 10.sp,
-              color: statusColor ?? AppColors.appGreyColor,
+              color: statusColor ?? AppColors.textPrimary,
             )
           : null,
       trailing: trailing != null

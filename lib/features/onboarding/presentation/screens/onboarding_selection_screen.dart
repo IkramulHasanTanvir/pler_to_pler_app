@@ -1,5 +1,6 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_sizer.dart';
@@ -26,9 +27,9 @@ class OnboardingSelectionScreen extends StatelessWidget {
             fit: BoxFit.cover,
           ),
           Positioned(
-            left: getWidth(16),
-            right: getWidth(16),
-            bottom: getHeight(46),
+            left: 16.w,
+            right: 16.w,
+            bottom: 46.h,
             child: Column(
               children: [
                 CustomText(
@@ -36,14 +37,14 @@ class OnboardingSelectionScreen extends StatelessWidget {
                   fontSize: 40.sp,
                   fontWeight: FontWeight.w600,
                 ),
-                SizedBox(height: getHeight(8)),
+                SizedBox(height: 8.h),
                 CustomText(
                   text:
                       "Get AI-guided plans, track progress, and stay connected to experts all in one platform.",
                   fontSize: 16.sp,
                   fontWeight: FontWeight.w400,
                 ),
-                SizedBox(height: getHeight(40)),
+                SizedBox(height: 40.h),
                 Row(
                   children: [
                     Expanded(
@@ -58,7 +59,7 @@ class OnboardingSelectionScreen extends StatelessWidget {
                             'Personal workouts, trainer sessions,  plans and\nmore',
                       ),
                     ),
-                    SizedBox(width: getWidth(8)),
+                    SizedBox(width: 8.w),
                     Expanded(
                       child: _helperSelection(
                         onTap: () {
@@ -91,7 +92,7 @@ Widget _helperSelection({
   return GestureDetector(
     onTap: onTap,
     child: Container(
-      padding: EdgeInsets.all(getHeight(16)),
+      padding: EdgeInsets.all(16.r),
       decoration: BoxDecoration(
         color: AppColors.containerBg,
         borderRadius: BorderRadius.circular(16),
@@ -101,13 +102,13 @@ Widget _helperSelection({
         children: [
           Image.asset(
             imagePath,
-            width: getWidth(64),
-            height: getHeight(64),
+            width: 64.w,
+            height: 64.h,
             fit: BoxFit.cover,
           ),
-          SizedBox(height: getHeight(8)),
+          SizedBox(height: 8.h),
           CustomText(text: title, fontSize: 16.sp, fontWeight: FontWeight.w600),
-          SizedBox(height: getHeight(8)),
+          SizedBox(height: 8.h),
           CustomText(
             text: subTitle,
             fontSize: 12.sp,

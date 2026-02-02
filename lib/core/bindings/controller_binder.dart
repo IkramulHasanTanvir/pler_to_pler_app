@@ -8,15 +8,9 @@ import 'package:pler_to_pler_app/features/splash_screen/controllers/splash_contr
 class ControllerBinder extends Bindings {
   @override
   void dependencies() {
-    // splash controllers
-    Get.lazyPut<SplashController>(() => SplashController(), fenix: true);
-    Get.lazyPut<OnboardingController>(
-      () => OnboardingController(),
-      fenix: true,
-    );
-
-    // auth controllers
-    Get.lazyPut<LoginController>(() => LoginController(), fenix: true);
-    Get.lazyPut<SignUpController>(() => SignUpController(), fenix: true);
+    Get.put(SplashController());
+    Get.put(OnboardingController());
+    Get.put(LoginController());
+    Get.put(SignUpController());
   }
 }

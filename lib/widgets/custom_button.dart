@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:pler_to_pler_app/custom_assets/fonts.gen.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../widgets/widgets.dart';
 
 
@@ -55,7 +54,7 @@ class CustomButton extends StatelessWidget {
     return CustomContainer(
       elevation: elevation,
       onTap: onPressed,
-      color: backgroundColor ?? AppColors.primaryColor,
+      color: backgroundColor ?? AppColors.textPrimary,
       height: height ?? 48.h,
       width: width ?? double.infinity,
       radiusAll: radius ?? 4.r,
@@ -84,7 +83,7 @@ class CustomButton extends StatelessWidget {
               child: CustomText(
                 text: label ?? '',
                 color: foregroundColor ?? Colors.white,
-                fontName: fontName ?? FontFamily.lora,
+                fontName: fontName ?? 'Lora',
                 fontWeight: fontWeight ?? FontWeight.w400,
                 fontSize: fontSize ?? 16.sp,
               ),

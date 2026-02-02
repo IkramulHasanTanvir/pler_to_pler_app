@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import '../app/utils/app_colors.dart';
+import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import '../widgets/widgets.dart';
 
 
@@ -76,12 +76,12 @@ class ChatsListTileWidget extends StatelessWidget {
               maxline: 1,
               textOverflow: TextOverflow.ellipsis,
              // fontName: FontFamily.uncut,
-              color: AppColors.secondaryColor,
+              color: AppColors.textPrimary,
             ),
           ),
           Icon(
             Icons.circle,
-            color: AppColors.secondaryColor,
+            color: AppColors.textPrimary,
             size: 4.r,
           ),
           CustomText(
@@ -92,7 +92,7 @@ class ChatsListTileWidget extends StatelessWidget {
             maxline: 1,
             textOverflow: TextOverflow.ellipsis,
             //fontName: FontFamily.uncut,
-            color: AppColors.secondaryColor,
+            color: AppColors.textPrimary,
           ),
         ],
       ),

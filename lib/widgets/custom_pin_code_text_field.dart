@@ -36,7 +36,7 @@ class CustomPinCodeTextField extends StatelessWidget {
           textStyle: TextStyle(color: AppColors.textPrimary, fontSize: 16.sp),
           decoration: BoxDecoration(
             //shape: BoxShape.circle,
-            color: AppColors.bgColor,
+            color: AppColors.textPrimary,
             borderRadius: BorderRadius.circular(8),
             border: Border.all(color: AppColors.textPrimary),
           ),
