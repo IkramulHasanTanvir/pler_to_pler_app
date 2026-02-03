@@ -17,140 +17,129 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.all(16.r),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Image.asset(
-                    ImagePath.appLogo,
-                    width: 84.w,
-                    height: 84.h,
-                    fit: BoxFit.cover,
-                  ),
-                  SizedBox(height: 16.h),
-                  CustomText(
-                    text: "Sign in to  fitness",
-                    fontSize: 32.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  SizedBox(height:40.h),
-                  Container(
-                    padding: EdgeInsets.all(4.r),
-                    decoration: BoxDecoration(
-                      color: AppColors.textWhite,
-                      borderRadius: BorderRadius.circular(16),
+    return CustomScaffold(
+      body: SingleChildScrollView(
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                ImagePath.appLogo,
+                width: 84.w,
+                height: 84.h,
+                fit: BoxFit.cover,
+              ),
+              SizedBox(height: 16.h),
+              CustomText(
+                text: "Sign in to  fitness",
+                fontSize: 32.sp,
+                fontWeight: FontWeight.w600,
+              ),
+              SizedBox(height:40.h),
+              Container(
+                padding: EdgeInsets.all(4.r),
+                decoration: BoxDecoration(
+                  color: AppColors.textWhite,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: _helperTabBar(
+                        text: "Trainer",
+                        controller: controller,
+                      ),
                     ),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          child: _helperTabBar(
-                            text: "Trainer",
-                            controller: controller,
-                          ),
-                        ),
-                        Expanded(
-                          child: _helperTabBar(
-                            text: "User",
-                            controller: controller,
-                          ),
-                        ),
-                        Expanded(
-                          child: _helperTabBar(
-                            text: "Facility",
-                            controller: controller,
-                          ),
-                        ),
-                      ],
+                    Expanded(
+                      child: _helperTabBar(
+                        text: "User",
+                        controller: controller,
+                      ),
                     ),
-                  ),
-                  SizedBox(height: 24.h),
-                  CustomText(
-                    text: "Email",
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textSecondary,
-                  ),
-                  SizedBox(height: 4.h),
-                  CustomTextField(
-                    controller: controller.emailController,
-                    hintText: "Enter your email address",
-                    prefixIcon: Icon(Icons.email, size: 24.sp),
-                  ),
-                  SizedBox(height: 12.h),
-                  CustomText(
-                    text: "Password",
-                    fontSize: 14.sp,
-                    fontWeight: FontWeight.w500,
-                    color: AppColors.textSecondary,
-                  ),
-                  SizedBox(height: 4.h),
-                  Obx(
-                    () => CustomTextField(
-                      controller: controller.passwordController,
-                      hintText: "Enter your password",
-                      prefixIcon: Icon(Icons.vpn_key, size: 24.sp),
-                      isPassword: true,
+                  ],
+                ),
+              ),
+              SizedBox(height: 24.h),
+              CustomText(
+                text: "Email",
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.textSecondary,
+              ),
+              SizedBox(height: 4.h),
+              CustomTextField(
+                controller: controller.emailController,
+                hintText: "Enter your email address",
+                prefixIcon: Icon(Icons.email, size: 24.sp),
+              ),
+              SizedBox(height: 12.h),
+              CustomText(
+                text: "Password",
+                fontSize: 14.sp,
+                fontWeight: FontWeight.w500,
+                color: AppColors.textSecondary,
+              ),
+              SizedBox(height: 4.h),
+            CustomTextField(
+                  controller: controller.passwordController,
+                  hintText: "Enter your password",
+                  prefixIcon: Icon(Icons.vpn_key, size: 24.sp),
+                  isPassword: true,
 
-                    ),
+                ),
+
+              SizedBox(height: 12.h),
+              SizedBox(
+                width: double.infinity,
+                child: GestureDetector(
+                  onTap: () {
+                    log("Forgot password click");
+                  },
+                  child: CustomText(
+                    text: "Forgot password?",
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.textSecondary,
+                    textAlign: TextAlign.end,
                   ),
-                  SizedBox(height: 12.h),
-                  SizedBox(
-                    width: double.infinity,
-                    child: GestureDetector(
-                      onTap: () {
-                        log("Forgot password click");
-                      },
-                      child: CustomText(
-                        text: "Forgot password?",
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.textSecondary,
-                        textAlign: TextAlign.end,
-                      ),
-                    ),
+                ),
+              ),
+              SizedBox(height: 24.h),
+              CustomButton(
+                  label: "Sign in",
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      log("Validate");
+                    } else {
+                      log("Not validate");
+                    }
+                  },
+                ),
+              SizedBox(height: 16.h),
+              Row(
+                children: [
+                  Expanded(child: Divider()),
+                  SizedBox(width: 8.w),
+                  CustomText(
+                    text: "Or continue with",
+                    fontSize: 12.sp,
+                    fontWeight: FontWeight.w400,
+                    color: AppColors.textSecondary,
                   ),
-                  SizedBox(height: 24.h),
-                  Obx(
-                    () => CustomButton(
-                      label: "Sign in",
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          log("Validate");
-                        } else {
-                          log("Not validate");
-                        }
-                      },
-                    ),
-                  ),
-                  SizedBox(height: 16.h),
-                  Row(
-                    children: [
-                      Expanded(child: Divider()),
-                      SizedBox(width: 8.w),
-                      CustomText(
-                        text: "Or continue with",
-                        fontSize: 12.sp,
-                        fontWeight: FontWeight.w400,
-                        color: AppColors.textSecondary,
-                      ),
-                      SizedBox(width: 8.w),
-                      Expanded(child: Divider()),
-                    ],
-                  ),
-                  SizedBox(height: 16.h),
-                  CustomButton(
-                    label: "Sign in with Google",
-                    onPressed: () {},
-                  ),
+                  SizedBox(width: 8.w),
+                  Expanded(child: Divider()),
                 ],
               ),
-            ),
+              SizedBox(height: 16.h),
+              CustomButton(
+                bordersColor: Colors.black.withOpacity(0.008),
+                foregroundColor: Colors.black,
+                backgroundColor: Colors.white,
+                label: "Sign in with Google",
+                onPressed: () {},
+              ),
+            ],
           ),
         ),
       ),
@@ -204,6 +193,9 @@ Widget _helperTabBar({
           borderRadius: BorderRadius.circular(16),
         ),
         child: CustomText(
+          color: controller.selectedTab.value == text ?
+              AppColors.textWhite
+              : AppColors.textSecondary,
           text: text,
           fontSize: 16.sp,
           fontWeight: FontWeight.w600,

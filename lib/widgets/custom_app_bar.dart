@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
+import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/widgets/custom_container.dart';
 
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -51,18 +53,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       centerTitle: centerTitle,
       elevation: 0,
       automaticallyImplyLeading: false,
-      backgroundColor: backgroundColor ?? Color(0xffF5F5F7),
+      backgroundColor: backgroundColor ?? Color(0xffF0F0F0),
       foregroundColor: foregroundColor ?? Colors.white,
       scrolledUnderElevation: 0,
       flexibleSpace: flexibleSpace,
       leading: leading ??
           ((showLeading && (parentRoute?.canPop ?? false))
               ? IconButton(
-            icon: Icon(
-              Icons.arrow_back,
-              color: foregroundColor ?? AppColors.textPrimary,
-              size: 24.sp,
-            ),
+            icon: Assets.icons.arrowBack.svg(),
             onPressed: backAction ?? () => Navigator.pop(context),
           )
               : null),
