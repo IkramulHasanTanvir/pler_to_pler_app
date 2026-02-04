@@ -20,6 +20,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
+  /// File path: assets/icons/camera.svg
+  SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
+
   /// File path: assets/icons/email.png
   AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
 
@@ -31,8 +34,18 @@ class $AssetsIconsGen {
   AssetGenImage get passwordIcon =>
       const AssetGenImage('assets/icons/password_icon.png');
 
+  /// File path: assets/icons/person.svg
+  SvgGenImage get person => const SvgGenImage('assets/icons/person.svg');
+
   /// List of all assets
-  List<dynamic> get values => [arrowBack, email, emailIcon, passwordIcon];
+  List<dynamic> get values => [
+    arrowBack,
+    camera,
+    email,
+    emailIcon,
+    passwordIcon,
+    person,
+  ];
 }
 
 class $AssetsImagesGen {

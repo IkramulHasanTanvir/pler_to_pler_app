@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/complete_profile_screen.dart';
 import 'package:pler_to_pler_app/features/onboarding/presentation/screens/onboarding_main_screen.dart';
 
 class SplashController extends GetxController with GetSingleTickerProviderStateMixin {
@@ -33,7 +34,7 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
   void navigateToHomeScreen() {
     Future.delayed(const Duration(milliseconds: 3000), () {
       log("Go to onboarding screen");
-      Get.offAll(() => OnboardingMainScreen());
+      Get.to(() => CompleteProfileScreen());
     });
   }
 

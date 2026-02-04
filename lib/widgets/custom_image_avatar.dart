@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
-import '../services/api_urls.dart';
 import '../widgets/widgets.dart';
 
 class CustomImageAvatar extends StatelessWidget {

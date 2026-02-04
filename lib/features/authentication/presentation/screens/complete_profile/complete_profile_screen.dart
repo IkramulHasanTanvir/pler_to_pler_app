@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
+import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/date_page.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/gender_page.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/names_page.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/profile_picture_page.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class CompleteProfileScreen extends StatefulWidget {
@@ -12,29 +17,51 @@ class CompleteProfileScreen extends StatefulWidget {
 
 class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
   int currentIndex = 0;
+  late PageController pageController;
 
-  final PageController _pageController = PageController();
-  final TextEditingController firstNameController = TextEditingController();
-  final TextEditingController lastNameController = TextEditingController();
+  final List<Widget> pages = [
+    NamesPage(),
+    DatePage(),
+    GenderPage(),
+    ProfilePicturePage(),
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController(initialPage: 0);
+  }
+
+  @override
+  void dispose() {
+    pageController.dispose();
+    super.dispose();
+  }
+
+  void _navigateToPage(int index) {
+    pageController.animateToPage(
+      index,
+      duration: const Duration(milliseconds: 300),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return CustomScaffold(
       appBar: CustomAppBar(
-        backAction: (){
-          if(currentIndex >0){
-            setState(() {
-              currentIndex--;
-            });
-          }else{
+        backAction: () {
+          if (currentIndex > 0) {
+            _navigateToPage(currentIndex - 1);
+          } else {
             Navigator.pop(context);
           }
         },
         titleWidget: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(
-            6,
-            (index) => Expanded(
+            pages.length,
+                (index) => Expanded(
               child: CustomContainer(
                 marginLeft: 4.w,
                 height: 6.h,
@@ -48,7 +75,9 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         ),
         actions: [
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              // Handle skip action - navigate to next screen
+            },
             child: CustomText(
               text: 'Skip',
               fontSize: 16.sp,
@@ -62,52 +91,42 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         children: [
           SizedBox(height: 24.h),
           AppLogoWidget(
-            subtitle: 'Let’s start with building your profile',
+              subtitle: 'Let\'s start with building your profile',
           ),
           SizedBox(height: 40.h),
-
           Expanded(
             child: PageView.builder(
-              itemCount: 6,
+              controller: pageController,
+              physics: NeverScrollableScrollPhysics(),
+              itemCount: pages.length,
               itemBuilder: (context, index) {
-              return Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-
-                  CustomText(
-                    text: 'What’s your name ?',
-                    fontSize: 24.sp,
-                    fontWeight: FontWeight.w600,
-                  ),
-                  SizedBox(height: 16.h),
-                  CustomTextField(
-                    labelText: 'First name',
-                    hintText: 'Enter your first name', controller: firstNameController,
-                  ),
-                  CustomTextField(
-                    labelText: 'Last name',
-                    hintText: 'Enter your last name', controller: lastNameController,
-                  ),
-                ],
-              );
-            }, onPageChanged: (index){
-              setState(() {
-                currentIndex = index;
-              });
-            },),
+                return pages[index];
+              },
+              onPageChanged: (index) {
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+            ),
           )
         ],
       ),
-      bottomNavigationBar: SafeArea(child: Padding(
-        padding:  EdgeInsets.all(16.w),
-        child: CustomButton(onPressed: (){
-          if(currentIndex<5){
-            setState(() {
-              currentIndex++;
-            });
-          }
-        },label: 'Next'),
-      )),
+      bottomNavigationBar: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.all(16.w),
+          child: CustomButton(
+            onPressed: () {
+              if (currentIndex < pages.length - 1) {
+                _navigateToPage(currentIndex + 1);
+              } else {
+                // Handle completion - navigate to next screen
+                // Navigator.pushReplacement(context, ...);
+              }
+            },
+            label: currentIndex < pages.length - 1 ? 'Next' : 'Complete',
+          ),
+        ),
+      ),
     );
   }
 }
