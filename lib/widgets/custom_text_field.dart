@@ -97,8 +97,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
         if (widget.labelText != null)
           CustomText(
             text: widget.labelText ?? '',
-            fontName:'Lora',
-            color: AppColors.textPrimary,
+            fontName:'Figtree',
+            color: Color(0xFF0B0D10),
             bottom: 4.h,
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
@@ -155,14 +155,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
           cursorColor: widget.cursorColor ?? AppColors.textSecondary,
           obscureText: widget.isPassword ? obscureText : false,
           style: TextStyle(
-              color: widget.hintextColor ?? AppColors.textPrimary,
-              fontSize: widget.hintextSize ?? 12.h,
+              color: widget.hintextColor ?? AppColors.textSecondary,
+              fontSize: widget.hintextSize ?? 14.h,
               fontFamily: widget.fontFamily),
           decoration: InputDecoration(
               contentPadding: EdgeInsets.symmetric(
                   horizontal: widget.contentPaddingHorizontal ?? 0.w,
                   vertical: widget.contentPaddingVertical ?? 0.h),
-              fillColor: widget.filColor ?? Colors.transparent,
+              fillColor: widget.filColor ?? Colors.white,
               filled: true,
               prefixIcon: widget.prefixIcon != null ? Padding(
                 padding:  EdgeInsets.symmetric(horizontal: 10.w),
@@ -179,9 +179,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
               prefixIconConstraints: BoxConstraints(minHeight: 24.w, minWidth: 24.w),
               hintText: widget.hintText,
               hintStyle: TextStyle(
-                fontFamily: widget.fontFamily ?? 'Roboto',
-                  color: widget.hintextColor ?? AppColors.textPrimary,
-                  fontSize: widget.hintextSize ?? 12.h,
+                fontFamily: widget.fontFamily ?? 'Figtree',
+                  color: widget.hintextColor ?? Colors.black.withOpacity(0.16),
+                  fontSize: widget.hintextSize ?? 14.h,
                   fontWeight: FontWeight.w400),
               focusedBorder: widget.border ?? focusedBorder(),
               enabledBorder: widget.border ?? enabledBorder(),
@@ -202,21 +202,27 @@ class _CustomTextFieldState extends State<CustomTextField> {
         child: Icon(icon, color: AppColors.textPrimary));
   }
 
-  UnderlineInputBorder focusedBorder() {
-    return UnderlineInputBorder(
-      borderSide: BorderSide(color: AppColors.textPrimary), // bottom border color
+  OutlineInputBorder focusedBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(widget.borderRadio?.r ?? 16.r),
+      borderSide: BorderSide(
+          width: 1, color: widget.borderColor ?? Colors.black.withOpacity(0.16)),
     );
   }
 
-  UnderlineInputBorder enabledBorder() {
-    return UnderlineInputBorder(
-      borderSide: BorderSide(color: AppColors.textPrimary), // bottom border color
+  OutlineInputBorder enabledBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(widget.borderRadio?.r ?? 16.r),
+      borderSide: BorderSide(
+          width: 1, color: widget.borderColor ?? Colors.black.withOpacity(0.16)),
     );
   }
 
-  UnderlineInputBorder errorBorder() {
-    return UnderlineInputBorder(
-      borderSide: BorderSide(color: Colors.red), // bottom border color
+  OutlineInputBorder errorBorder() {
+    return OutlineInputBorder(
+      borderRadius: BorderRadius.circular(widget.borderRadio?.r ?? 16.r),
+      borderSide:
+      BorderSide(color: widget.borderColor ?? Colors.red, width: 1),
     );
   }
 }
