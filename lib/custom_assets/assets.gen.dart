@@ -17,11 +17,23 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Clients.svg
+  SvgGenImage get clients => const SvgGenImage('assets/icons/Clients.svg');
+
+  /// File path: assets/icons/Contents.svg
+  SvgGenImage get contents => const SvgGenImage('assets/icons/Contents.svg');
+
   /// File path: assets/icons/Payoneer.svg
   SvgGenImage get payoneer => const SvgGenImage('assets/icons/Payoneer.svg');
 
+  /// File path: assets/icons/Schedules.svg
+  SvgGenImage get schedules => const SvgGenImage('assets/icons/Schedules.svg');
+
   /// File path: assets/icons/Stripe.svg
   SvgGenImage get stripe => const SvgGenImage('assets/icons/Stripe.svg');
+
+  /// File path: assets/icons/add_button.svg
+  SvgGenImage get addButton => const SvgGenImage('assets/icons/add_button.svg');
 
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
@@ -42,6 +54,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/file.svg
   SvgGenImage get file => const SvgGenImage('assets/icons/file.svg');
 
+  /// File path: assets/icons/home.svg
+  SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
+
   /// File path: assets/icons/password_icon.png
   AssetGenImage get passwordIcon =>
       const AssetGenImage('assets/icons/password_icon.png');
@@ -57,14 +72,19 @@ class $AssetsIconsGen {
 
   /// List of all assets
   List<dynamic> get values => [
+    clients,
+    contents,
     payoneer,
+    schedules,
     stripe,
+    addButton,
     arrowBack,
     camera,
     clean,
     email,
     emailIcon,
     file,
+    home,
     passwordIcon,
     paypal,
     person,
@@ -105,6 +125,9 @@ class $AssetsImagesGen {
   AssetGenImage get onbordingTwoBgImg =>
       const AssetGenImage('assets/images/onbording_two_bg_img.png');
 
+  /// File path: assets/images/success.png
+  AssetGenImage get success => const AssetGenImage('assets/images/success.png');
+
   /// List of all assets
   List<AssetGenImage> get values => [
     appLogo,
@@ -115,6 +138,7 @@ class $AssetsImagesGen {
     onboardingOneBgImg,
     onboardingThreeBgImg,
     onbordingTwoBgImg,
+    success,
   ];
 }
 

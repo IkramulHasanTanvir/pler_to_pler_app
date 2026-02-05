@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/payment_success_screen.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class TrainerUpgradeScreen extends StatefulWidget {
@@ -169,7 +171,9 @@ class _TrainerUpgradeScreenState extends State<TrainerUpgradeScreen> {
             mainAxisSize: MainAxisSize.min,
             children: [
               // Upgrade Button
-              CustomButton(onPressed: () {}, label: "Upgrade Now"),
+              CustomButton(onPressed: () {
+                Get.to(() => const PaymentSuccessScreen());
+              }, label: "Upgrade Now"),
               SizedBox(height: 16.h),
               CustomText(text:
                 'Cancel anytime • No hidden fees',
