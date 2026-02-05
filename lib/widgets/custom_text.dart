@@ -54,7 +54,7 @@ class CustomText extends StatelessWidget {
             decoration: decoration,
             decorationColor: decorationColor,
               fontSize: fontSize ?? 14.sp,
-              fontFamily: fontName ?? 'Roboto',
+              fontFamily: fontName ?? 'Figtree',
               fontWeight: fontWeight,
               color: color ?? AppColors.textPrimary),
         ),

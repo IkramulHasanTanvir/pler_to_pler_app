@@ -4,29 +4,28 @@ import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/bio_page.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/date_page.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/document_page.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/gender_page.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/names_page.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/payment_select_page.dart';
 import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/children/profile_picture_page.dart';
-import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/complete_payment_screen.dart';
+import 'package:pler_to_pler_app/features/authentication/presentation/screens/complete_profile/payment_details_screen.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
-class CompleteProfileScreen extends StatefulWidget {
-  const CompleteProfileScreen({super.key});
+class CompletePaymentScreen extends StatefulWidget {
+  const CompletePaymentScreen({super.key});
 
   @override
-  State<CompleteProfileScreen> createState() => _CompleteProfileScreenState();
+  State<CompletePaymentScreen> createState() => _CompletePaymentScreenState();
 }
 
-class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
+class _CompletePaymentScreenState extends State<CompletePaymentScreen> {
   int currentIndex = 0;
   late PageController pageController;
 
   final List<Widget> pages = [
-    NamesPage(),
-    DatePage(),
-    GenderPage(),
-    ProfilePicturePage(),
-    BioPage(),
+    DocumentPage(),
+    PaymentSelectPage(),
   ];
 
   @override
@@ -79,7 +78,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         actions: [
           TextButton(
             onPressed: () {
-              Get.to(() => const CompletePaymentScreen());
+              Get.to(() => const TrainerUpgradeScreen());
               // Handle skip action - navigate to next screen
             },
             child: CustomText(
@@ -92,12 +91,9 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
         ],
       ),
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 24.h),
-          AppLogoWidget(
-              subtitle: 'Let\'s start with building your profile',
-          ),
-          SizedBox(height: 40.h),
           Expanded(
             child: PageView.builder(
               controller: pageController,
@@ -123,7 +119,7 @@ class _CompleteProfileScreenState extends State<CompleteProfileScreen> {
               if (currentIndex < pages.length - 1) {
                 _navigateToPage(currentIndex + 1);
               } else {
-                Get.to(() => const CompletePaymentScreen());
+                Get.to(() => const TrainerUpgradeScreen());
                 // Handle completion - navigate to next screen
                 // Navigator.pushReplacement(context, ...);
               }

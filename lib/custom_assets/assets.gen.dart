@@ -17,11 +17,20 @@ import 'package:vector_graphics/vector_graphics.dart' as _vg;
 class $AssetsIconsGen {
   const $AssetsIconsGen();
 
+  /// File path: assets/icons/Payoneer.svg
+  SvgGenImage get payoneer => const SvgGenImage('assets/icons/Payoneer.svg');
+
+  /// File path: assets/icons/Stripe.svg
+  SvgGenImage get stripe => const SvgGenImage('assets/icons/Stripe.svg');
+
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
   /// File path: assets/icons/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
+
+  /// File path: assets/icons/clean.svg
+  SvgGenImage get clean => const SvgGenImage('assets/icons/clean.svg');
 
   /// File path: assets/icons/email.png
   AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
@@ -30,21 +39,36 @@ class $AssetsIconsGen {
   AssetGenImage get emailIcon =>
       const AssetGenImage('assets/icons/email_icon.png');
 
+  /// File path: assets/icons/file.svg
+  SvgGenImage get file => const SvgGenImage('assets/icons/file.svg');
+
   /// File path: assets/icons/password_icon.png
   AssetGenImage get passwordIcon =>
       const AssetGenImage('assets/icons/password_icon.png');
 
+  /// File path: assets/icons/paypal.svg
+  SvgGenImage get paypal => const SvgGenImage('assets/icons/paypal.svg');
+
   /// File path: assets/icons/person.svg
   SvgGenImage get person => const SvgGenImage('assets/icons/person.svg');
 
+  /// File path: assets/icons/transfer.svg
+  SvgGenImage get transfer => const SvgGenImage('assets/icons/transfer.svg');
+
   /// List of all assets
   List<dynamic> get values => [
+    payoneer,
+    stripe,
     arrowBack,
     camera,
+    clean,
     email,
     emailIcon,
+    file,
     passwordIcon,
+    paypal,
     person,
+    transfer,
   ];
 }
 
@@ -61,6 +85,9 @@ class $AssetsImagesGen {
 
   /// File path: assets/images/img.png
   AssetGenImage get img => const AssetGenImage('assets/images/img.png');
+
+  /// File path: assets/images/img_1.png
+  AssetGenImage get img1 => const AssetGenImage('assets/images/img_1.png');
 
   /// File path: assets/images/onboarding_fore_bg_img.png
   AssetGenImage get onboardingForeBgImg =>
@@ -83,6 +110,7 @@ class $AssetsImagesGen {
     appLogo,
     facilityAppLogo,
     img,
+    img1,
     onboardingForeBgImg,
     onboardingOneBgImg,
     onboardingThreeBgImg,
