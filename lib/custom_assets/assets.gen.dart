@@ -38,6 +38,12 @@ class $AssetsIconsGen {
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
+  /// File path: assets/icons/attention.svg
+  SvgGenImage get attention => const SvgGenImage('assets/icons/attention.svg');
+
+  /// File path: assets/icons/calender.svg
+  SvgGenImage get calender => const SvgGenImage('assets/icons/calender.svg');
+
   /// File path: assets/icons/camera.svg
   SvgGenImage get camera => const SvgGenImage('assets/icons/camera.svg');
 
@@ -57,6 +63,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
+  /// File path: assets/icons/missing.svg
+  SvgGenImage get missing => const SvgGenImage('assets/icons/missing.svg');
+
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification =>
       const SvgGenImage('assets/icons/notification.svg');
@@ -71,8 +80,17 @@ class $AssetsIconsGen {
   /// File path: assets/icons/person.svg
   SvgGenImage get person => const SvgGenImage('assets/icons/person.svg');
 
+  /// File path: assets/icons/setting.svg
+  SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
+
+  /// File path: assets/icons/star.svg
+  SvgGenImage get star => const SvgGenImage('assets/icons/star.svg');
+
   /// File path: assets/icons/transfer.svg
   SvgGenImage get transfer => const SvgGenImage('assets/icons/transfer.svg');
+
+  /// File path: assets/icons/video_call.svg
+  SvgGenImage get videoCall => const SvgGenImage('assets/icons/video_call.svg');
 
   /// List of all assets
   List<dynamic> get values => [
@@ -83,17 +101,23 @@ class $AssetsIconsGen {
     stripe,
     addButton,
     arrowBack,
+    attention,
+    calender,
     camera,
     clean,
     email,
     emailIcon,
     file,
     home,
+    missing,
     notification,
     passwordIcon,
     paypal,
     person,
+    setting,
+    star,
     transfer,
+    videoCall,
   ];
 }
 

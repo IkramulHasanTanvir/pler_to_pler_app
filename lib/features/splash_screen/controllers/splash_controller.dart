@@ -34,7 +34,7 @@ class SplashController extends GetxController with GetSingleTickerProviderStateM
   void navigateToHomeScreen() {
     Future.delayed(const Duration(milliseconds: 3000), () {
       log("Go to onboarding screen");
-      Get.to(() => CompleteProfileScreen());
+      Get.to(() => OnboardingMainScreen());
     });
   }
 
