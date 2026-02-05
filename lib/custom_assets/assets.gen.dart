@@ -57,6 +57,10 @@ class $AssetsIconsGen {
   /// File path: assets/icons/home.svg
   SvgGenImage get home => const SvgGenImage('assets/icons/home.svg');
 
+  /// File path: assets/icons/notification.svg
+  SvgGenImage get notification =>
+      const SvgGenImage('assets/icons/notification.svg');
+
   /// File path: assets/icons/password_icon.png
   AssetGenImage get passwordIcon =>
       const AssetGenImage('assets/icons/password_icon.png');
@@ -85,6 +89,7 @@ class $AssetsIconsGen {
     emailIcon,
     file,
     home,
+    notification,
     passwordIcon,
     paypal,
     person,
