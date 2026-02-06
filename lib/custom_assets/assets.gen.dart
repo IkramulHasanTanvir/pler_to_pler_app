@@ -57,6 +57,9 @@ class $AssetsIconsGen {
   AssetGenImage get emailIcon =>
       const AssetGenImage('assets/icons/email_icon.png');
 
+  /// File path: assets/icons/exercise.svg
+  SvgGenImage get exercise => const SvgGenImage('assets/icons/exercise.svg');
+
   /// File path: assets/icons/file.svg
   SvgGenImage get file => const SvgGenImage('assets/icons/file.svg');
 
@@ -107,6 +110,7 @@ class $AssetsIconsGen {
     clean,
     email,
     emailIcon,
+    exercise,
     file,
     home,
     missing,
