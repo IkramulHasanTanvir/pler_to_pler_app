@@ -16,7 +16,10 @@ class TwoButtonWidget extends StatelessWidget {
     super.key,
     required this.buttons,
     required this.selectedValue,
-    required this.onTap, this.fontSize, this.selectedBgColor, this.bgColor,
+    required this.onTap,
+    this.fontSize,
+    this.selectedBgColor,
+    this.bgColor,
   });
 
   @override
@@ -27,17 +30,29 @@ class TwoButtonWidget extends StatelessWidget {
         return Expanded(
           child: GestureDetector(
             onTap: () => onTap(item['value']!),
-            child: CustomContainer(
-              bordersColor: isSelected ? (selectedBgColor ?? Color(0xff3E513E)) : (bgColor ?? AppColors.textSecondary),
-              horizontalMargin: 10.w,
-              radiusAll: 12.w,
-              paddingVertical: 8.r,
-              color: isSelected ? (selectedBgColor ?? Color(0xff3E513E)) : (bgColor ?? Colors.transparent) ,
-              child: CustomText(
-                text: item['label']!,
-                color: isSelected ? Colors.white : AppColors.textPrimary,
-                fontSize: fontSize ?? 15.sp,
-                fontWeight: FontWeight.w500,
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 300),
+              curve: Curves.easeInOut,
+              margin: EdgeInsets.symmetric(horizontal: 6.w),
+              padding: EdgeInsets.symmetric(vertical: 9.h),
+              decoration: BoxDecoration(
+                color: isSelected
+                    ? (selectedBgColor ?? Colors.black)
+                    : (bgColor ?? Colors.white),
+                borderRadius: BorderRadius.circular(50.w),
+              ),
+              child: AnimatedDefaultTextStyle(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                style: TextStyle(
+                  color: isSelected ? Colors.white : AppColors.textSecondary,
+                  fontSize: fontSize ?? 16.sp,
+                  fontWeight: FontWeight.w600,
+                ),
+                child: Text(
+                  item['label']!,
+                  textAlign: TextAlign.center,
+                ),
               ),
             ),
           ),

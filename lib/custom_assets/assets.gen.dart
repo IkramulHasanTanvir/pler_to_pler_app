@@ -50,6 +50,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/clean.svg
   SvgGenImage get clean => const SvgGenImage('assets/icons/clean.svg');
 
+  /// File path: assets/icons/edit.svg
+  SvgGenImage get edit => const SvgGenImage('assets/icons/edit.svg');
+
   /// File path: assets/icons/email.png
   AssetGenImage get email => const AssetGenImage('assets/icons/email.png');
 
@@ -108,6 +111,7 @@ class $AssetsIconsGen {
     calender,
     camera,
     clean,
+    edit,
     email,
     emailIcon,
     exercise,
@@ -136,11 +140,17 @@ class $AssetsImagesGen {
   AssetGenImage get facilityAppLogo =>
       const AssetGenImage('assets/images/facility_app_logo.png');
 
+  /// File path: assets/images/iamge3.png
+  AssetGenImage get iamge3 => const AssetGenImage('assets/images/iamge3.png');
+
   /// File path: assets/images/img.png
   AssetGenImage get img => const AssetGenImage('assets/images/img.png');
 
   /// File path: assets/images/img_1.png
   AssetGenImage get img1 => const AssetGenImage('assets/images/img_1.png');
+
+  /// File path: assets/images/img_2.png
+  AssetGenImage get img2 => const AssetGenImage('assets/images/img_2.png');
 
   /// File path: assets/images/onboarding_fore_bg_img.png
   AssetGenImage get onboardingForeBgImg =>
@@ -165,8 +175,10 @@ class $AssetsImagesGen {
   List<AssetGenImage> get values => [
     appLogo,
     facilityAppLogo,
+    iamge3,
     img,
     img1,
+    img2,
     onboardingForeBgImg,
     onboardingOneBgImg,
     onboardingThreeBgImg,
