@@ -79,13 +79,12 @@ class NavFabWidget {
     );
   }
 
-  static Widget _buildMenuItem({
+   Widget _buildMenuItem({
     required Widget icon,
     required String label,
     required VoidCallback onTap,
   }) {
     return CustomContainer(
-      //alignment: Alignment.center,
       width: 182.w,
       color: Colors.white,
       radiusAll: 12.r,
