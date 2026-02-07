@@ -41,7 +41,7 @@ class AppColors {
   static const Color success = Color(0xFF4CAF50);
   static const Color warning = Color(0xFFFFA726);
   static const Color error = Color(0xFFF44336);
-  static const Color info = Color(0xFF29B6F6);
+  static const Color info = Color(0xFF0063F7);
 
   /// textformfield border color
 

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/features/profile/widgets/exercise_card_widget.dart';
 import 'package:pler_to_pler_app/features/profile/widgets/services_card_widget.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
@@ -127,96 +128,110 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                   SizedBox(height: 16.h),
 
-                  _buildBioCardWidget(label: 'Bio', value: 'Welcome to the CEO\'s Channel ....'),
-                  _buildBioCardWidget(label: 'Specialties', value: 'Strength, Rehab, Post-Op Recovery'),
-                  _buildBioCardWidget(label: 'Certifications', value: 'ACE, NASM, PT Licences'),
+                  if(selectedButtonValue == 'about')...[
+                    _buildBioCardWidget(label: 'Bio', value: 'Welcome to the CEO\'s Channel ....'),
+                    _buildBioCardWidget(label: 'Specialties', value: 'Strength, Rehab, Post-Op Recovery'),
+                    _buildBioCardWidget(label: 'Certifications', value: 'ACE, NASM, PT Licences'),
 
 
 
 
-                       CustomButton(
-                        prefixIcon: Assets.icons.edit.svg(height: 16.r,width: 16.r),
-                        fontSize: 14.sp,
-                        foregroundColor: Colors.black,
-                        backgroundColor: Colors.white,
-                        radius: 12.r,
-                        height: 32.h,
-                        width: 175.w,
-                        onPressed: (){
-                          /// TODO:
-                        },
-                        label: 'Upload certification',
+                    CustomButton(
+                      prefixIcon: Assets.icons.edit.svg(height: 16.r,width: 16.r),
+                      fontSize: 14.sp,
+                      foregroundColor: Colors.black,
+                      backgroundColor: Colors.white,
+                      radius: 12.r,
+                      height: 32.h,
+                      width: 175.w,
+                      onPressed: (){
+                        /// TODO:
+                      },
+                      label: 'Upload certification',
 
-                      ),
-
-                  SizedBox(height: 16.h),
-
-                  _buildBioCardWidget(label: 'Trainer Experience', value: '8 years'),
-
-
-                  SizedBox(height: 16.h),
-                  CustomContainer(
-                    radiusAll: 16.r,
-                    width: double.infinity,
-                    color: Colors.white,
-                    paddingAll: 16.r,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomText(text:
-                        'Availability',
-                          fontSize: 16.sp,
-                          fontWeight: FontWeight.w600,
-                          bottom: 16.h,
-
-                        ),
-
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: availabilityDays.map((day) {
-                            return _buildAvailabilityDay(
-                              day['day'],
-                              day['isAvailable'],
-                            );
-                          }).toList(),
-                        ),
-
-                        SizedBox(height: 16.h),
-                        CustomButton(
-                          bordersColor: Colors.black.withOpacity(0.08),
-                          prefixIcon: Assets.icons.edit.svg(height: 20.r,width: 20.r),
-                          fontSize: 14.sp,
-                          foregroundColor: Colors.black,
-                          backgroundColor: Colors.white,
-                          radius: 16.r,
-
-                          onPressed: (){
-                            /// TODO:
-                          },
-                          label: 'Edit Availability',
-
-                        ),
-                      ],
                     ),
-                  ),
+
+                    SizedBox(height: 16.h),
+
+                    _buildBioCardWidget(label: 'Trainer Experience', value: '8 years'),
 
 
-                  // Services section
-                  CustomText(text:
+                    SizedBox(height: 16.h),
+                    CustomContainer(
+                      radiusAll: 16.r,
+                      width: double.infinity,
+                      color: Colors.white,
+                      paddingAll: 16.r,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomText(text:
+                          'Availability',
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.w600,
+                            bottom: 16.h,
+
+                          ),
+
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: availabilityDays.map((day) {
+                              return _buildAvailabilityDay(
+                                day['day'],
+                                day['isAvailable'],
+                              );
+                            }).toList(),
+                          ),
+
+                          SizedBox(height: 16.h),
+                          CustomButton(
+                            bordersColor: Colors.black.withOpacity(0.08),
+                            prefixIcon: Assets.icons.edit.svg(height: 20.r,width: 20.r),
+                            fontSize: 14.sp,
+                            foregroundColor: Colors.black,
+                            backgroundColor: Colors.white,
+                            radius: 16.r,
+
+                            onPressed: (){
+                              /// TODO:
+                            },
+                            label: 'Edit Availability',
+
+                          ),
+                        ],
+                      ),
+                    ),
+
+
+                    // Services section
+                    CustomText(text:
                     'Services',
                       fontSize: 18.sp,
                       fontWeight: FontWeight.w600,
-                    top: 16.h,
+                      top: 16.h,
 
-                  ),
-                  ListView.builder(
-                      padding: EdgeInsets.zero, // Remove default padding
-                      shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: 2,
-                      itemBuilder: (context,index) {
-                        return ServicesCardWidget();
-                      } ),
+                    ),
+                    ListView.builder(
+                        padding: EdgeInsets.zero, // Remove default padding
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemCount: 2,
+                        itemBuilder: (context,index) {
+                          return ServicesCardWidget();
+                        } ),
+                  ],
+
+                  if(selectedButtonValue == 'exercise')
+                    ListView.builder(
+                      itemCount: 20,
+                        shrinkWrap: true,
+                        padding: EdgeInsets.zero,
+                        physics: NeverScrollableScrollPhysics(),
+                        itemBuilder: (context,index){
+                      return ExerciseCardWidget();
+                    }),
+
+
 
                   SizedBox(height: 32.h),
                 ],
