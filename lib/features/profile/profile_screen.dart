@@ -5,6 +5,7 @@ import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
 import 'package:pler_to_pler_app/features/profile/widgets/exercise_card_widget.dart';
 import 'package:pler_to_pler_app/features/profile/widgets/services_card_widget.dart';
+import 'package:pler_to_pler_app/features/settings/settings_screen.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -55,7 +56,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             actions: [
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(() => SettingsScreen());
+                },
                 icon: Assets.icons.setting.svg(
                   height: 48.r,
                   width: 48.r,
@@ -223,7 +226,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
                   if(selectedButtonValue == 'exercise')
                     ListView.builder(
-                      itemCount: 20,
+                      itemCount: 4,
                         shrinkWrap: true,
                         padding: EdgeInsets.zero,
                         physics: NeverScrollableScrollPhysics(),

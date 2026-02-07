@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/custom_assets/fonts.gen.dart';
 import 'package:pler_to_pler_app/widgets/custom_container.dart';
 
 
@@ -9,7 +10,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     this.title,
-    this.titleSize = 16,
+    this.titleSize = 20,
     this.centerTitle = true,
     this.titleWidget,
     this.flexibleSpace,
@@ -68,8 +69,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Text(
         title!,
         style: TextStyle(
-          fontFamily: 'Roboto',
-          fontWeight: FontWeight.w400,
+          fontFamily: FontFamily.figtree,
+          fontWeight: FontWeight.w600,
           fontSize: titleSize.sp,
           color: foregroundColor ?? AppColors.textPrimary,
         ),

@@ -35,6 +35,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/add_button.svg
   SvgGenImage get addButton => const SvgGenImage('assets/icons/add_button.svg');
 
+  /// File path: assets/icons/ai.svg
+  SvgGenImage get ai => const SvgGenImage('assets/icons/ai.svg');
+
   /// File path: assets/icons/arrow_back.svg
   SvgGenImage get arrowBack => const SvgGenImage('assets/icons/arrow_back.svg');
 
@@ -106,6 +109,7 @@ class $AssetsIconsGen {
     schedules,
     stripe,
     addButton,
+    ai,
     arrowBack,
     attention,
     calender,

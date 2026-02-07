@@ -4,9 +4,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/custom_assets/assets.gen.dart';
+import 'package:pler_to_pler_app/features/home/widgets/ai_insight_widget.dart';
 import 'package:pler_to_pler_app/features/home/widgets/session_card_widget.dart';
 import 'package:pler_to_pler_app/features/profile/profile_screen.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -15,11 +17,15 @@ class HomeScreen extends StatelessWidget {
     return CustomScaffold(
       appBar: CustomAppBar(
         titleWidget: GestureDetector(
-          onTap: (){
+          onTap: () {
             Get.to(() => ProfileScreen());
           },
           child: ListTile(
-            leading: CustomImageAvatar(image: '', radius: 22.r, showBorder: true),
+            leading: CustomImageAvatar(
+              image: '',
+              radius: 22.r,
+              showBorder: true,
+            ),
             title: Row(
               children: [
                 CustomText(
@@ -135,6 +141,7 @@ class HomeScreen extends StatelessWidget {
                   ),
 
                   ListView.builder(
+                    physics: NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemCount: 2,
                     itemBuilder: (context, index) {
@@ -144,6 +151,12 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+
+            SizedBox(height: 8.h),
+
+            AiInsightWidget(),
+
+            SizedBox(height: 100.h),
           ],
         ),
       ),
@@ -183,4 +196,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
