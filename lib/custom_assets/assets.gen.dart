@@ -75,6 +75,9 @@ class $AssetsIconsGen {
   /// File path: assets/icons/missing.svg
   SvgGenImage get missing => const SvgGenImage('assets/icons/missing.svg');
 
+  /// File path: assets/icons/more.svg
+  SvgGenImage get more => const SvgGenImage('assets/icons/more.svg');
+
   /// File path: assets/icons/notification.svg
   SvgGenImage get notification =>
       const SvgGenImage('assets/icons/notification.svg');
@@ -88,6 +91,9 @@ class $AssetsIconsGen {
 
   /// File path: assets/icons/person.svg
   SvgGenImage get person => const SvgGenImage('assets/icons/person.svg');
+
+  /// File path: assets/icons/recieved.svg
+  SvgGenImage get recieved => const SvgGenImage('assets/icons/recieved.svg');
 
   /// File path: assets/icons/setting.svg
   SvgGenImage get setting => const SvgGenImage('assets/icons/setting.svg');
@@ -122,10 +128,12 @@ class $AssetsIconsGen {
     file,
     home,
     missing,
+    more,
     notification,
     passwordIcon,
     paypal,
     person,
+    recieved,
     setting,
     star,
     transfer,

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:pler_to_pler_app/core/utils/constants/app_colors.dart';
 import 'package:pler_to_pler_app/features/settings/children/account_details_screen.dart';
+import 'package:pler_to_pler_app/features/settings/children/earnings_screen.dart';
 import 'package:pler_to_pler_app/widgets/widgets.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -44,29 +45,40 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     ],
                   ),
                 ),
-              ],
-            ),
-            SizedBox(height: 8.h),
-            _buildContainerCard(
-              label: 'App',
-              children: [
-                _buildCardListWidget(label: 'App Preferences', onTap: () {
-                  Get.to(() => AccountDetailsScreen());
-                }),
-                _buildCardListWidget(label: 'Language & Region', onTap: () {},isSpacer: false,),
-                // _buildCardListWidget(
-                //   label: 'Notifications',
-                //   onTap: () {},
-                //   isSpacer: false,
-                // ),
+                SizedBox(height: 8.h),
+
+                _buildCardListWidget(
+                  isSpacer: false,
+                  label: 'App Preferences',
+                  onTap: () {
+                    Get.to(() => AccountDetailsScreen());
+                  },
+                ),
               ],
             ),
 
+            // SizedBox(height: 8.h),
+            // _buildContainerCard(
+            //   label: 'App',
+            //   children: [
+            //     _buildCardListWidget(label: 'App Preferences', onTap: () {
+            //       Get.to(() => AccountDetailsScreen());
+            //     }),
+            //     //_buildCardListWidget(label: 'Language & Region', onTap: () {},isSpacer: false,),
+            //     // _buildCardListWidget(
+            //     //   label: 'Notifications',
+            //     //   onTap: () {},
+            //     //   isSpacer: false,
+            //     // ),
+            //   ],
+            // ),
             SizedBox(height: 8.h),
             _buildContainerCard(
               label: 'Options',
               children: [
-                _buildCardListWidget(label: 'Earnings', onTap: () {}),
+                _buildCardListWidget(label: 'Earnings', onTap: () {
+                  Get.to(() => EarningsScreen());
+                }),
                 _buildCardListWidget(
                   label: 'Privacy & Security',
                   onTap: () {},

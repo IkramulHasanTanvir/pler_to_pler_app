@@ -199,7 +199,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   Widget _suffixIcon(IconData icon) {
     return Padding(
         padding: const EdgeInsets.all(0),
-        child: Icon(icon, color: AppColors.textPrimary));
+        child: Icon(icon, color: AppColors.textSecondary,size: 20.r));
   }
 
   OutlineInputBorder focusedBorder() {

@@ -21,56 +21,82 @@ class _AccountDetailsScreenState extends State<AccountDetailsScreen> {
     return CustomScaffold(
       appBar: CustomAppBar(title: 'Account details'),
 
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomText(
-            text: 'Account information',
-            fontWeight: FontWeight.w600,
-            fontSize: 18.sp,
-            bottom: 8.h,
-            top: 24.h,
-          ),
-
-          CustomTextField(
-            prefixIcon: Assets.icons.emailIcon.image(height: 20.r, width: 20.r),
-            labelText: 'Email',
-            controller: _emailController,
-          ),
-
-
-
-
-          /// +++++++++++++++++++++++++ Password +++++++++++++++++++++++
-          CustomText(
-            text: 'Password',
-            fontWeight: FontWeight.w600,
-            fontSize: 18.sp,
-            bottom: 8.h,
-            top: 24.h,
-          ),
-
-          CustomTextField(
-            prefixIcon: Assets.icons.passwordIcon.image(
-              height: 20.r,
-              width: 20.r,
+      body: SingleChildScrollView(
+        physics: BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustomText(
+              text: 'Account information',
+              fontWeight: FontWeight.w600,
+              fontSize: 18.sp,
+              bottom: 8.h,
+              top: 24.h,
             ),
-            labelText: 'Current password',
-            hintText: 'Enter your current password',
-            controller: _passwordController,
-          ),
 
-          CustomTextField(
-            prefixIcon: Assets.icons.passwordIcon.image(
-              height: 20.r,
-              width: 20.r,
+            CustomTextField(
+              prefixIcon: Assets.icons.emailIcon.image(height: 20.r, width: 20.r),
+              labelText: 'Email',
+              controller: _emailController,
             ),
-            labelText: 'New password',
-            hintText: 'Enter your new password',
-            controller: _confirmPasswordController,
-          ),
-        ],
+
+            CustomContainer(
+              radiusAll: 12.r,
+              color: Colors.white,
+              paddingAll: 16.r,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  CustomText(text: 'Date of birth',fontWeight: FontWeight.w600),
+                  CustomContainer(
+                    color: Colors.black.withOpacity(0.08),
+                    paddingAll: 8.r,
+                    radiusAll: 8.r,
+                    child: CustomText(text: '15 Feb 1996'),
+                  ),
+                ],
+              ),
+            ),
+
+
+
+            /// +++++++++++++++++++++++++ Password +++++++++++++++++++++++
+            CustomText(
+              text: 'Password',
+              fontWeight: FontWeight.w600,
+              fontSize: 18.sp,
+              bottom: 8.h,
+              top: 24.h,
+            ),
+
+            CustomTextField(
+              prefixIcon: Assets.icons.passwordIcon.image(
+                height: 20.r,
+                width: 20.r,
+              ),
+              labelText: 'Current password',
+              hintText: 'Enter your current password',
+              controller: _passwordController,
+              isPassword: true,
+            ),
+
+            CustomTextField(
+              prefixIcon: Assets.icons.passwordIcon.image(
+                height: 20.r,
+                width: 20.r,
+              ),
+              labelText: 'New password',
+              hintText: 'Enter your new password',
+              controller: _confirmPasswordController,
+              isPassword: true,
+            ),
+          ],
+        ),
       ),
+      bottomNavigationBar: SafeArea(child: Padding(
+        padding:  EdgeInsets.all(16.r),
+        child: CustomButton(onPressed: (){},label: 'Save'),
+      )),
     );
   }
 }
